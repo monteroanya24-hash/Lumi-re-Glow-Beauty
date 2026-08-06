@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumière Glow Beauty | Reveal Your Natural Radiance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-accent: #F4C542;
+            --pure-white: #FFFFFF;
+            --secondary-accent: #F28C38;
+            --deep-brown: #8B5E3C;
+            --soft-beige: #F5E6D3;
+            --sage-green: #A8C686;
+            --text-dark: #3E2919;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--pure-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header {
+            background-color: var(--pure-white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(139, 94, 60, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--deep-brown);
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--deep-brown);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary-accent);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(139, 94, 60, 0.5), rgba(62, 41, 25, 0.6)), 
+                        url('https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--pure-white);
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-accent);
+            color: var(--text-dark);
+            border: 2px solid var(--primary-accent);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-accent);
+            border-color: var(--secondary-accent);
+            color: var(--pure-white);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--pure-white);
+            border: 2px solid var(--pure-white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--pure-white);
+            color: var(--deep-brown);
+        }
+
+        .about {
+            padding: 5rem 10%;
+            background-color: var(--soft-beige);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--deep-brown);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 50%;
+            height: 2px;
+            background-color: var(--secondary-accent);
+            position: absolute;
+            bottom: -8px;
+            left: 25%;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: 0 auto 1.5rem auto;
+            font-size: 1.1rem;
+        }
+
+        .products {
+            padding: 5rem 5%;
+            background-color: var(--pure-white);
+            text-align: center;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background-color: var(--soft-beige);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(139, 94, 60, 0.15);
+        }
+
+        .product-image-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #E6D5C3;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--deep-brown);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            color: var(--deep-brown);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-weight: 600;
+            color: var(--secondary-accent);
+            font-size: 1.1rem;
+            margin: 0.5rem 0 1rem 0;
+        }
+
+        .why-us {
+            padding: 5rem 5%;
+            background-color: var(--soft-beige);
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background-color: var(--pure-white);
+            padding: 2.5rem 1.5rem;
+            border-radius: 12px;
+            border-top: 4px solid var(--sage-green);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: var(--deep-brown);
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background-color: var(--deep-brown);
+            color: var(--pure-white);
+            padding: 4rem 5% 2rem 5%;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-accent);
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-list a {
+            color: var(--soft-beige);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            color: var(--soft-beige);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <span class="logo-text">Lumière Glow Beauty</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#why-us">Why Choose Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Lumière Glow Beauty</h1>
+        <p>Reveal Your Natural Radiance.</p>
+        <div class="btn-group">
+            <a href="#products" class="btn btn-primary">Shop Now</a>
+            <a href="#contact" class="btn btn-secondary">Contact Us</a>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2 class="section-title">About Us</h2>
+        <p>At <strong>Lumière Glow Beauty</strong>, we believe that healthy, glowing skin is the ultimate reflection of self-care. Our brand was created to bring high-performance, gentle skincare solutions directly to your daily routine.</p>
+        <p><strong>Our Mission:</strong> To empower your natural glow by providing premium, safe, and affordable skincare products crafted with care and integrity.</p>
+    </section>
+
+    <section class="products" id="products">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image-placeholder">Radiant Glow Serum</div>
+                <h3>Illuminating Serum</h3>
+                <p>Nourishes and brightens dull skin for a clear, effortless daily radiance.</p>
+                <div class="product-price">₱499.00</div>
+                <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+            <div class="product-card">
+                <div class="product-image-placeholder">Gentle Face Cleanser</div>
+                <h3>Hydrating Cleanser</h3>
+                <p>Gently washes away impurities while retaining essential natural moisture.</p>
+                <div class="product-price">₱349.00</div>
+                <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+            <div class="product-card">
+                <div class="product-image-placeholder">Nourishing Night Cream</div>
+                <h3>Night Renewal Cream</h3>
+                <p>Rich botanical formulation designed to repair and hydrate overnight.</p>
+                <div class="product-price">₱599.00</div>
+                <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us" id="why-us">
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🌿</div>
+                <h3>Premium Quality</h3>
+                <p>Thoughtfully formulated skincare essentials designed to deliver real results.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3>Safe Ingredients</h3>
+                <p>Dermatologist-conscious, gentle formulas free from harsh and toxic additives.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💛</div>
+                <h3>Affordable Beauty</h3>
+                <p>Luxurious self-care made accessible to everyone without high markup prices.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚚</div>
+                <h3>Reliable Service</h3>
+                <p>Fast packaging, quick order processing, and dependable delivery to your home.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Lumière Glow Beauty</h3>
+                <p>Reveal Your Natural Radiance with safe, effective, and accessible skincare solutions.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Get In Touch</h3>
+                <ul class="contact-list">
+                    <li>📧 Email: <a href="mailto:anzelabarecia40@gmail.com">anzelabarecia40@gmail.com</a></li>
+                    <li>📱 Phone: <a href="tel:+639163961196">+63 916 396 1196</a></li>
+                    <li>🌐 Facebook: <a href="https://facebook.com" target="_blank">Lumière Glow Beauty</a></li>
+                    <li>💬 Messenger: <a href="https://m.me" target="_blank">Lumière Glow Beauty</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Lumière Glow Beauty. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
